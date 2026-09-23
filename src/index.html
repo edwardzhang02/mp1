@@ -4,10 +4,281 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
+        <meta name="description" content="Eddie Zhang's personal photography: trails, cities after dark and short films.">
+        <title>Eddie Zhang Photography</title>
+        <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap">
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+        <!-- Sticky, shrinking navigation bar -->
+        <header class="navbar" id="navbar">
+            <nav class="navbar__inner" aria-label="Main navigation">
+                <a class="navbar__brand" href="#home" data-scroll>
+                    <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                    <span>Eddie Zhang</span>
+                </a>
+                <button class="navbar__toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="navbar__menu" id="nav-menu">
+                    <li><a class="navbar__link" href="#home" data-scroll>Home</a></li>
+                    <li><a class="navbar__link" href="#gallery" data-scroll>Gallery</a></li>
+                    <li><a class="navbar__link" href="#collections" data-scroll>Collections</a></li>
+                    <li><a class="navbar__link" href="#film" data-scroll>Film</a></li>
+                    <li><a class="navbar__link" href="#about" data-scroll>About</a></li>
+                    <li><a class="navbar__link" href="#connect" data-scroll>Connect</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero: fixed background image + vertically centered content -->
+            <section class="hero section-bg-fixed" id="home">
+                <div class="hero__content">
+                    <p class="eyebrow">Photography</p>
+                    <h1 class="hero__title">Eddie <em>Zhang</em></h1>
+                    <a class="btn btn--light" href="#gallery" data-scroll>See My Photos</a>
+                </div>
+                <a class="hero__scroll" href="#gallery" data-scroll aria-label="Scroll to gallery">
+                    <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                </a>
+            </section>
+
+            <!-- Gallery: carousel -->
+            <section class="section" id="gallery">
+                <div class="container">
+                    <header class="section__header reveal">
+                        <p class="eyebrow">My Favorite Frames</p>
+                        <h2 class="section__title">Gallery</h2>
+                    </header>
+
+                    <div class="carousel reveal" id="carousel" aria-roledescription="carousel" aria-label="Favorite photographs">
+                        <div class="carousel__viewport">
+                            <ul class="carousel__track">
+                                <li class="carousel__slide is-active" aria-roledescription="slide" aria-label="1 of 4">
+                                    <img src="assets/photos/ridge.jpg" alt="Hiker climbing a rocky ridge at golden hour above hazy mountains">
+                                    <div class="carousel__caption">
+                                        <h3>Golden Hour Ridge</h3>
+                                        <p>June 2026 &middot; 16mm &middot; f/22 &middot; 1/80s &middot; ISO 640</p>
+                                    </div>
+                                </li>
+                                <li class="carousel__slide" aria-roledescription="slide" aria-label="2 of 4">
+                                    <img src="assets/photos/summit.jpg" alt="Two hikers on a rocky summit framed by pine branches">
+                                    <div class="carousel__caption">
+                                        <h3>Summit Company</h3>
+                                        <p>June 2026 &middot; 43mm &middot; f/13 &middot; 1/250s &middot; ISO 320</p>
+                                    </div>
+                                </li>
+                                <li class="carousel__slide" aria-roledescription="slide" aria-label="3 of 4">
+                                    <img src="assets/photos/budapest.jpg" alt="Hungarian Parliament Building lit up at night along the Danube">
+                                    <div class="carousel__caption">
+                                        <h3>Parliament After Dark</h3>
+                                        <p>Budapest &middot; November 2024 &middot; 70mm &middot; f/3.5 &middot; ISO 8000</p>
+                                    </div>
+                                </li>
+                                <li class="carousel__slide" aria-roledescription="slide" aria-label="4 of 4">
+                                    <img src="assets/photos/cathedral.jpg" alt="Gothic cathedral interior with ornate altar and blue stained glass windows">
+                                    <div class="carousel__caption">
+                                        <h3>Cathedral Light</h3>
+                                        <p>November 2024 &middot; 24mm &middot; f/4.5 &middot; ISO 8000</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="carousel__arrow carousel__arrow--prev" type="button" aria-label="Previous slide">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button class="carousel__arrow carousel__arrow--next" type="button" aria-label="Next slide">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                        <div class="carousel__dots" role="group" aria-label="Choose slide"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collections: three columns, each opening a modal -->
+            <section class="section section--alt" id="collections">
+                <div class="container">
+                    <header class="section__header reveal">
+                        <p class="eyebrow">What I Like to Shoot</p>
+                        <h2 class="section__title">Collections</h2>
+                    </header>
+
+                    <div class="collections-grid">
+                        <article class="collection-card reveal">
+                            <img class="collection-card__image" src="assets/photos/summit.jpg" alt="Two hikers on a rocky summit framed by pine branches">
+                            <div class="collection-card__body">
+                                <i class="fa-solid fa-mountain-sun collection-card__icon" aria-hidden="true"></i>
+                                <h3>Trails &amp; Summits</h3>
+                                <p>Hikes where the view at the top made every step worth it.</p>
+                                <button class="btn btn--outline" type="button" data-modal-open="modal-trails">See the Shots</button>
+                            </div>
+                        </article>
+                        <article class="collection-card reveal">
+                            <img class="collection-card__image" src="assets/photos/budapest.jpg" alt="Hungarian Parliament Building lit up at night along the Danube">
+                            <div class="collection-card__body">
+                                <i class="fa-solid fa-moon collection-card__icon" aria-hidden="true"></i>
+                                <h3>Cities After Dark</h3>
+                                <p>Old architecture that glows long after the sun goes down.</p>
+                                <button class="btn btn--outline" type="button" data-modal-open="modal-cities">See the Shots</button>
+                            </div>
+                        </article>
+                        <article class="collection-card reveal">
+                            <img class="collection-card__image" src="assets/film-poster.jpg" alt="Grassy ridge with a fence and boulder beneath clouds and distant snowy peaks">
+                            <div class="collection-card__body">
+                                <i class="fa-solid fa-video collection-card__icon" aria-hidden="true"></i>
+                                <h3>In Motion</h3>
+                                <p>Short clips for when a single frame is not enough.</p>
+                                <button class="btn btn--outline" type="button" data-modal-open="modal-motion">Learn More</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured frame: second fixed background image -->
+            <section class="featured section-bg-fixed" aria-labelledby="featured-title">
+                <div class="container featured__inner reveal">
+                    <figure class="featured__figure">
+                        <img src="assets/photos/budapest.jpg" alt="Hungarian Parliament Building lit up at night along the Danube">
+                    </figure>
+                    <div class="featured__text">
+                        <p class="eyebrow">A Frame I Keep Coming Back To</p>
+                        <h2 class="featured__title" id="featured-title">Parliament After Dark</h2>
+                        <p class="featured__note">Shot handheld from across the Danube on a cold November night. ISO 8000 was the only way to keep the shutter quick enough to hold the warm light on the building, and I still like how it turned out.</p>
+                        <ul class="check-list">
+                            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Budapest, Hungary</li>
+                            <li><i class="fa-solid fa-calendar" aria-hidden="true"></i> November 2024</li>
+                            <li><i class="fa-solid fa-camera" aria-hidden="true"></i> 70mm &middot; f/3.5 &middot; 1/80s &middot; ISO 8000</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Film: HTML5 video -->
+            <section class="section" id="film">
+                <div class="container film">
+                    <div class="film__text reveal">
+                        <p class="eyebrow">In Motion</p>
+                        <h2 class="section__title">Film</h2>
+                        <p>Sixteen seconds of clouds drifting over a grassy mountain ridge, with snowy peaks on the horizon. Hit play and take a breath.</p>
+                        <ul class="check-list">
+                            <li><i class="fa-solid fa-calendar" aria-hidden="true"></i> September 2024</li>
+                            <li><i class="fa-solid fa-clock" aria-hidden="true"></i> 16 seconds</li>
+                            <li><i class="fa-solid fa-film" aria-hidden="true"></i> Recorded in 4K</li>
+                        </ul>
+                    </div>
+                    <div class="film__player reveal">
+                        <video controls preload="metadata" playsinline poster="assets/film-poster.jpg">
+                            <source src="assets/film.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About -->
+            <section class="section section--alt" id="about">
+                <div class="container about">
+                    <div class="about__image reveal">
+                        <img src="assets/photos/cathedral.jpg" alt="Gothic cathedral interior with ornate altar and blue stained glass windows">
+                    </div>
+                    <div class="about__text reveal">
+                        <p class="eyebrow">About Me</p>
+                        <h2 class="section__title">Hi, I&rsquo;m Eddie.</h2>
+                        <p>I take photos for fun. I usually have a camera with me on hikes and trips, and these are some of the shots I like best.</p>
+                        <p class="about__gear"><i class="fa-solid fa-camera-retro" aria-hidden="true"></i> Currently shooting on a Fujifilm X-T5</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer / Connect -->
+        <footer class="footer" id="connect">
+            <div class="container footer__inner">
+                <h2 class="footer__title">Contact</h2>
+                <p class="footer__text"><a class="footer__email" href="mailto:edward.zhang.eo@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> edward.zhang.eo@gmail.com</a></p>
+                <ul class="social">
+                    <li><a class="social__link social__link--instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a class="social__link social__link--youtube" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+                    <li><a class="social__link social__link--github" href="https://github.com/edwardzhang02" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+                <p class="footer__credits">&copy; 2026 Eddie Zhang. All photos and video are my own.</p>
+            </div>
+        </footer>
+
+        <!-- Modals -->
+        <div class="modal" id="modal-trails" role="dialog" aria-modal="true" aria-labelledby="modal-trails-title" aria-hidden="true">
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close" data-modal-close>
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+                <div class="modal__media">
+                    <img src="assets/photos/ridge.jpg" alt="Hiker climbing a rocky ridge at golden hour above hazy mountains">
+                    <img src="assets/photos/summit.jpg" alt="Two hikers on a rocky summit framed by pine branches">
+                </div>
+                <div class="modal__body">
+                    <p class="eyebrow">Collection</p>
+                    <h3 id="modal-trails-title">Trails &amp; Summits</h3>
+                    <p>Both of these come from the same hiking trip in June 2026. For the ridge I stopped all the way down to f/22 to keep everything sharp, from the rocks up close to the hills fading into the haze. At the summit I shot through the pine branches to frame the hikers against the sky.</p>
+                    <dl class="exif">
+                        <div class="exif__row">
+                            <dt>Golden Hour Ridge</dt>
+                            <dd>Fujifilm X-S20 &middot; 16mm &middot; f/22 &middot; 1/80s &middot; ISO 640</dd>
+                        </div>
+                        <div class="exif__row">
+                            <dt>Summit Company</dt>
+                            <dd>Fujifilm X-S20 &middot; 43mm &middot; f/13 &middot; 1/250s &middot; ISO 320</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-cities" role="dialog" aria-modal="true" aria-labelledby="modal-cities-title" aria-hidden="true">
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close" data-modal-close>
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+                <div class="modal__media">
+                    <img src="assets/photos/budapest.jpg" alt="Hungarian Parliament Building lit up at night along the Danube">
+                    <img src="assets/photos/cathedral.jpg" alt="Gothic cathedral interior with ornate altar and blue stained glass windows">
+                </div>
+                <div class="modal__body">
+                    <p class="eyebrow">Collection</p>
+                    <h3 id="modal-cities-title">Cities After Dark</h3>
+                    <p>These two are from a trip in November 2024. Shooting at night meant pushing the ISO all the way to 8000 to hold on to the warm light on the Parliament Building across the Danube and the stained glass glowing inside the cathedral.</p>
+                    <dl class="exif">
+                        <div class="exif__row">
+                            <dt>Parliament After Dark</dt>
+                            <dd>70mm &middot; f/3.5 &middot; 1/80s &middot; ISO 8000</dd>
+                        </div>
+                        <div class="exif__row">
+                            <dt>Cathedral Light</dt>
+                            <dd>24mm &middot; f/4.5 &middot; 1/25s &middot; ISO 8000</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-motion" role="dialog" aria-modal="true" aria-labelledby="modal-motion-title" aria-hidden="true">
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close" data-modal-close>
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+                <div class="modal__media">
+                    <img src="assets/film-poster.jpg" alt="Grassy ridge with a fence and boulder beneath clouds and distant snowy peaks">
+                </div>
+                <div class="modal__body">
+                    <p class="eyebrow">Collection</p>
+                    <h3 id="modal-motion-title">In Motion</h3>
+                    <p>Some scenes are about movement: clouds rolling across a ridge, light shifting over the peaks. For those moments I switch from stills to video. This clip was recorded in 4K in September 2024.</p>
+                    <a class="btn btn--outline" href="#film" data-scroll>Watch the Film</a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

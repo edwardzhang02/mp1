@@ -1,0 +1,77 @@
+@use "../abstracts" as *;
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+
+    @include respond-below("sm") {
+        grid-template-columns: 1fr;
+    }
+}
+
+.collection-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: $radius;
+    background-color: $color-white;
+    text-align: center;
+    @include card-shadow(1);
+    transition: box-shadow $transition-medium, transform $transition-medium;
+
+    &:hover {
+        @include card-shadow(3);
+        transform: translateY(-6px);
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    &__body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1.5rem 1.75rem;
+
+        p {
+            flex: 1;
+            color: $color-muted;
+        }
+    }
+
+    &__icon {
+        @include flex-center;
+        width: 3.25rem;
+        height: 3.25rem;
+        margin-top: -1.625rem;
+        margin-bottom: 1rem;
+        border: 3px solid $color-white;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        color: $color-white;
+        background-color: $color-accent;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    @include respond-below("md") {
+        &__body {
+            padding-inline: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            padding-inline: 1.25rem;
+        }
+    }
+}

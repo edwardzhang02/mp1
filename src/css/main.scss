@@ -1,1 +1,14 @@
-/* Your SCSS here. */
+// Base styles
+@use "base/base";
+
+// Components
+@use "components/buttons";
+@use "components/navbar";
+@use "components/hero";
+@use "components/carousel";
+@use "components/collections";
+@use "components/featured";
+@use "components/film";
+@use "components/about";
+@use "components/footer";
+@use "components/modal";

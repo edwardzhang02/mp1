@@ -1,0 +1,46 @@
+// Colors
+$color-ink: #111318;
+$color-ink-soft: #1b1e25;
+$color-paper: #f7f5f0;
+$color-paper-alt: #ece8df;
+$color-text: #2a2d34;
+$color-muted: #6b6f78;
+$color-accent: #c29b5a;
+$color-accent-dark: #a47f41;
+$color-white: #fff;
+
+// Typography
+$font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+$font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+// Layout
+$container-width: 1200px;
+$gutter: 1.5rem;
+$radius: 0.75rem;
+$section-padding: clamp(4rem, 8vw, 7rem);
+
+// Navbar sizes (large at the top of the page, small after scrolling)
+$nav-height-large: 6rem;
+$nav-height-small: 3.75rem;
+$nav-link-size-large: 1.05rem;
+$nav-link-size-small: 0.875rem;
+$nav-brand-size-large: 2rem;
+$nav-brand-size-small: 1.45rem;
+
+// Motion
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$transition-fast: 0.25s ease;
+$transition-medium: 0.45s $ease-out;
+
+// Breakpoints
+$breakpoints: (
+    "sm": 600px,
+    "md": 900px,
+);
+
+// Brand colors for social icons
+$social-colors: (
+    "instagram": #e1306c,
+    "youtube": #ff0000,
+    "github": #6e5494,
+);

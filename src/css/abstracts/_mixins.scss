@@ -1,0 +1,34 @@
+@use "sass:map";
+@use "variables" as *;
+
+// Media query for screens at or below a named breakpoint.
+@mixin respond-below($name) {
+    @media (max-width: map.get($breakpoints, $name)) {
+        @content;
+    }
+}
+
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+// Section with a fixed-position background image and a dark overlay.
+@mixin fixed-background($image, $overlay-opacity: 0.45) {
+    background-image: linear-gradient(rgba($color-ink, $overlay-opacity), rgba($color-ink, $overlay-opacity)), url($image);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin card-shadow($depth: 1) {
+    box-shadow: 0 #{$depth * 4}px #{$depth * 18}px rgba($color-ink, 0.08 * $depth);
+}
+
+@mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}

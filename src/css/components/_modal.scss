@@ -1,0 +1,135 @@
+@use "../abstracts" as *;
+
+.modal {
+    @include flex-center;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    padding: $gutter;
+    background-color: rgba($color-ink, 0.7);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+
+    &__dialog {
+        position: relative;
+        display: grid;
+        grid-template-columns: 5fr 6fr;
+        width: 100%;
+        max-width: 56rem;
+        max-height: 90vh;
+        overflow: auto;
+        border-radius: $radius;
+        background-color: $color-paper;
+        box-shadow: 0 30px 80px rgba($color-ink, 0.4);
+        transform: translateY(2rem) scale(0.96);
+        transition: transform 0.45s $ease-out;
+    }
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.35s ease;
+
+        .modal__dialog {
+            transform: none;
+        }
+    }
+
+    // One or two stacked photos on the left side of the dialog
+    &__media {
+        display: grid;
+        grid-auto-rows: 1fr;
+        gap: 2px;
+        min-height: 20rem;
+        background-color: $color-ink;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__body {
+        padding: clamp(1.75rem, 4vw, 3rem);
+
+        h3 {
+            font-size: 2.25rem;
+        }
+
+        p:not(.eyebrow) {
+            color: $color-muted;
+        }
+    }
+
+    &__body .btn {
+        margin-top: 0.5rem;
+    }
+
+    &__close {
+        @include flex-center;
+        position: absolute;
+        top: 0.9rem;
+        right: 0.9rem;
+        z-index: 1;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 0;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        color: $color-ink;
+        background-color: rgba($color-white, 0.9);
+        transition: background-color $transition-fast, color $transition-fast, transform $transition-fast;
+
+        &:hover,
+        &:focus-visible {
+            color: $color-white;
+            background-color: $color-ink;
+            transform: rotate(90deg);
+        }
+    }
+
+    @include respond-below("md") {
+        &__dialog {
+            grid-template-columns: 1fr;
+        }
+
+        &__media {
+            grid-auto-rows: auto;
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            grid-auto-flow: column;
+            min-height: 0;
+
+            img {
+                aspect-ratio: 4 / 3;
+            }
+        }
+    }
+}
+
+// Camera settings list inside collection modals
+.exif {
+    margin: 1.5rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba($color-ink, 0.12);
+
+    &__row + &__row {
+        margin-top: 0.9rem;
+    }
+
+    dt {
+        font-family: $font-heading;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $color-ink;
+    }
+
+    dd {
+        margin: 0;
+        font-size: 0.85rem;
+        letter-spacing: 0.02em;
+        color: $color-muted;
+    }
+}

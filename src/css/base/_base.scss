@@ -1,0 +1,127 @@
+@use "../abstracts" as *;
+
+:root {
+    --nav-height-small: #{$nav-height-small};
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: $font-body;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-text;
+    background-color: $color-paper;
+
+    &.modal-open {
+        overflow: hidden;
+    }
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 0 0.5em;
+    font-family: $font-heading;
+    font-weight: 600;
+    line-height: 1.15;
+    color: $color-ink;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    max-width: $container-width;
+    margin-inline: auto;
+    padding-inline: $gutter;
+}
+
+.section {
+    padding-block: $section-padding;
+
+    &--alt {
+        background-color: $color-paper-alt;
+    }
+
+    &__header {
+        margin-bottom: clamp(2rem, 4vw, 3.5rem);
+        text-align: center;
+    }
+
+    &__title {
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+    }
+}
+
+.eyebrow {
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-accent;
+}
+
+.check-list {
+    margin: 0 0 1.25rem;
+    padding: 0;
+    list-style: none;
+
+    li {
+        margin-bottom: 0.4rem;
+    }
+
+    i {
+        margin-right: 0.5rem;
+        color: $color-accent;
+    }
+}
+
+// Scroll-triggered fade-in (only hides content when JS is running)
+.js .reveal {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.8s $ease-out, transform 0.8s $ease-out;
+
+    &.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@include reduced-motion {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
